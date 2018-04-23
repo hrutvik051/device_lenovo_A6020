@@ -43,7 +43,6 @@ case "$target" in
         # HMP scheduler settings for 8929, 8939
         echo 3 > /proc/sys/kernel/sched_window_stats_policy
         echo 9 > /proc/sys/kernel/sched_upmigrate_min_nice
-        echo 1 > /proc/sys/kernel/sched_boost
 
         # Apply governor settings for 8939
         case "$soc_id" in
@@ -286,6 +285,7 @@ case "$target" in
             # HMP scheduler (big.Little cluster related) settings
             echo 90 > /proc/sys/kernel/sched_upmigrate
             echo 75 > /proc/sys/kernel/sched_downmigrate
+            echo 0 > /proc/sys/kernel/sched_boost
 
             # Enable sched guided freq control
             echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load

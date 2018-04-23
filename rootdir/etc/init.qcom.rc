@@ -34,6 +34,8 @@ on early-init
 
     write /sys/class/leds/lcd-backlight/brightness 100
 
+    write /proc/sys/kernel/sched_boost 1
+
 on init
     mount debugfs /sys/kernel/debug /sys/kernel/debug mode=755
 
